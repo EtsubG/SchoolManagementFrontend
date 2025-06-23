@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>Add New User</h2>
+<div mat-dialog-content>
+  <form [formGroup]="userForm">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required>
+      <mat-error *ngIf="userForm.controls['name'].hasError('required') && userForm.controls['name'].touched">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" required>
+      <mat-error *ngIf="userForm.controls['email'].hasError('required') && userForm.controls['email'].touched">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="userForm.controls['email'].hasError('email') && userForm.controls['email'].touched">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" required>
+      <mat-error *ngIf="userForm.controls['password'].hasError('required') && userForm.controls['password'].touched">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="userForm.controls['password'].hasError('minlength') && userForm.controls['password'].touched">
+        Password must be at least 6 characters
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role" required>
+        <mat-option value="Admin">Admin</mat-option>
+        <mat-option value="Teacher">Teacher</mat-option>
+        <mat-option value="Student">Student</mat-option>
+      </mat-select>
+      <mat-error *ngIf="userForm.controls['role'].hasError('required') && userForm.controls['role'].touched">
+        Role is required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!userForm.valid">Save</button>
+</div>
+
+

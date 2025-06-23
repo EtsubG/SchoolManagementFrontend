@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+  <span class="spacer"></span> <button mat-button routerLink="/login" *ngIf="!authService.isLoggedIn()">Login</button>
+  <button mat-button routerLink="/register" *ngIf="!authService.isLoggedIn()">Register</button>
+  <button mat-button routerLink="/admin-dashboard" *ngIf="authService.isLoggedIn() && authService.hasRole('Admin')">Admin Dashboard</button>
+  <button mat-button (click)="onLogout()" *ngIf="authService.isLoggedIn()">Logout</button>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet> </div>

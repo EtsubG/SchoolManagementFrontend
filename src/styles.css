@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* src/styles.css */
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content {
+  padding: 20px;
+  margin-top: 20px; /* Adjust as needed based on toolbar height */
+  display: flex;
+  justify-content: center; /* Center the cards */
+  align-items: center;
+  min-height: calc(100vh - 64px - 40px); /* Adjust height for toolbar and padding */
+}
+
+mat-card {
+  max-width: 400px;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}

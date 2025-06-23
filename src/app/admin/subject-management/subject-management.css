@@ -1,0 +1,9 @@
+/* src/app/admin/subject-management/subject-management.component.css */
+mat-card {
+  margin: 20px;
+  padding: 20px;
+}
+
+.mat-mdc-table {
+  width: 100%;
+}

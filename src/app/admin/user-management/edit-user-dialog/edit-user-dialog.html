@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Edit User</h2>
+
+<mat-dialog-content [formGroup]="editUserForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="editUserForm.get('name')?.invalid && editUserForm.get('name')?.touched">
+      Name is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email">
+    <mat-error *ngIf="editUserForm.get('email')?.hasError('required') && editUserForm.get('email')?.touched">
+      Email is required.
+    </mat-error>
+    <mat-error *ngIf="editUserForm.get('email')?.hasError('email') && editUserForm.get('email')?.touched">
+      Please enter a valid email address.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="role">
+      <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="editUserForm.get('role')?.invalid && editUserForm.get('role')?.touched">
+      Role is required.
+    </mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="editUserForm.invalid">Save</button>
+</mat-dialog-actions>

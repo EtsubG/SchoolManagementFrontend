@@ -1,0 +1,8 @@
+/* src/app/admin/subject-management/add-subject-dialog/add-subject-dialog.component.css */
+.full-width {
+  width: 100%;
+}
+mat-dialog-content {
+  min-width: 300px; /* Adjust as needed */
+  max-width: 500px;
+}
